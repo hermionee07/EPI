@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void printBinary(long int x)
+void printBinary(unsigned long x)
 {
 	int i = 0;
 	string str;
