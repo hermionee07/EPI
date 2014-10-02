@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string> 
+#include "utilities.h"
 
 using namespace std;
 
@@ -19,9 +20,4 @@ void printBinary(long int x)
 	cout << endl;
 }
 
-int main()
-{
-	printBinary(64);
-	return 0;
-}
 
