@@ -2,6 +2,7 @@
 #define PRIMITIVETYPES_H
 
 #include <array>
+#include <type_traits>
 
 /*  This file contains solutions to questions related to primitive types in EPI */
 
@@ -14,8 +15,28 @@
 // 16 bit numbers and store them. The 64 bit number itself can be divided into 4 16 bit numbers.
 // It's parity can be calculated using this hashed information.
 
-unsigned short simpleParity(unsigned short x);
+//unsigned short simpleParity(unsigned short x);
 
 void precomputeParity(std::array<unsigned short, 65536>& arr);
+
+
+template <typename T>
+ushort simpleParity(T x)
+{
+    if (std::is_integral<T>::value == true && std::is_unsigned<T>::value == true)
+    {
+        int result = 0;
+        while (x)
+        {
+            result ^= (x & 1);
+            x = x >> 1;
+        }
+        return result;
+    }
+    else
+        return 2;
+    // this needs to be clever to return a good error!
+}
+
 
 #endif //PRIMITIVETYPES_H

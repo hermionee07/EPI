@@ -7,10 +7,9 @@ using namespace std;
 
 int main()
 {
-//    printBinary(65);
-//    cout << "Parity of 65 is " << calculateParity((unsigned long long) 65) << endl;
-//    printBinary(64);
-//    cout << "Parity of 64 is " << calculateParity((unsigned long long) 64) << endl;
+    int i = -20;
+    if ( simpleParity(i) > 1)
+        cout << "simpleParity works only for unsigned integral values!" << endl;
 
     array<ushort, 65536> arr = {0};
     precomputeParity(arr);
@@ -18,6 +17,7 @@ int main()
     // input a huge number of 64 bit numbers, to find parities
     // of all these numbers.
     unsigned long long x = 34359738367;
+    cout << "x = ";
     printBinary(x);
     ushort one = arr[x & ((1 << 16) - 1)];
     x = x >> 16;
