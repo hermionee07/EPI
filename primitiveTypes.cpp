@@ -16,9 +16,9 @@ using namespace std;
     return result;
 }*/
 
-unsigned short simpleParity(unsigned short x)
+ushort simpleParity(ushort x)
 {
-    unsigned short result = 0;
+    ushort result = 0;
     while (x)
     {
         result ^= (x & 1);
@@ -27,7 +27,7 @@ unsigned short simpleParity(unsigned short x)
     return result;
 }
 
-void precomputeParity(std::array<unsigned short, 65536>& arr)
+void precomputeParity(std::array<ushort, 65536>& arr)
 {
     // from 0 to 65535, calculate partity and store it in an array
     // arr[0] = 0; because parity of zero is 0.

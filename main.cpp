@@ -12,21 +12,21 @@ int main()
 //    printBinary(64);
 //    cout << "Parity of 64 is " << calculateParity((unsigned long long) 64) << endl;
 
-    array<unsigned short, 65536> arr = {0};
+    array<ushort, 65536> arr = {0};
     precomputeParity(arr);
 
     // input a huge number of 64 bit numbers, to find parities
     // of all these numbers.
     unsigned long long x = 34359738367;
     printBinary(x);
-    unsigned short one = arr[x & ((1 << 16) - 1)];
+    ushort one = arr[x & ((1 << 16) - 1)];
     x = x >> 16;
-    unsigned short two = arr[x & ((1 << 16) - 1)];
+    ushort two = arr[x & ((1 << 16) - 1)];
     x = x >> 16;
-    unsigned short three = arr[x & ((1 << 16) - 1)];
+    ushort three = arr[x & ((1 << 16) - 1)];
     x = x >> 16;
-    unsigned short four = arr[x];
-    unsigned short  p = one^two^three^four;
+    ushort four = arr[x];
+    ushort  p = one^two^three^four;
     cout << "Parity of x is " << p << endl;
 
     return 0;
