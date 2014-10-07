@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-    int i = -20;
-    if ( simpleParity(i) > 1)
-        cout << "simpleParity works only for unsigned integral values!" << endl;
+//    int i = -20;
+//    if ( simpleParity(i) > 1)
+//        cout << "simpleParity works only for unsigned integral values!" << endl;
 
     array<ushort, 65536> arr = {0};
     precomputeParity(arr);

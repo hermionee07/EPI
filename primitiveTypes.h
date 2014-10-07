@@ -23,20 +23,19 @@ void precomputeParity(std::array<unsigned short, 65536>& arr);
 template <typename T>
 ushort simpleParity(T x)
 {
-    if (std::is_integral<T>::value == true && std::is_unsigned<T>::value == true)
+    static_assert(std::is_integral<T>::value == true, "T should be integral");
+    static_assert(std::is_unsigned<T>::value == true, "T should be unsigned");
+
+    int result = 0;
+    while (x)
     {
-        int result = 0;
-        while (x)
-        {
-            result ^= (x & 1);
-            x = x >> 1;
-        }
-        return result;
+        result ^= (x & 1);
+        x = x >> 1;
     }
-    else
-        return 2;
-    // this needs to be clever to return a good error!
+    return result;
 }
+
+// 5.2 Reverse the bits of a 64 bit integer in place.
 
 
 #endif //PRIMITIVETYPES_H
