@@ -35,7 +35,12 @@ ushort simpleParity(T x)
     return result;
 }
 
-// 5.2 Reverse the bits of a 64 bit integer in place.
+// 5.2 Bit swapping. Swap the ith bit with the jth bit in a 64 bit number
 
+unsigned long long bitSwap(ushort i, ushort j, unsigned long long x);
+
+// 5.2 Reverse the bits of a 64 bit integer in place.
+//
+unsigned long long reverseBits(unsigned long long x);
 
 #endif //PRIMITIVETYPES_H
