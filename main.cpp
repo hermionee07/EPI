@@ -28,6 +28,13 @@ int main()
     ushort four = arr[x];
     ushort  p = one^two^three^four;
     cout << "Parity of x is " << p << endl;
-
+    cout << ".................................." << endl;
+    x = 15;
+    printBinary(x);
+    x = bitSwap(0,63,x);
+    printBinary(x);
+    printBinary(5);
+    x = reverseBits(5);
+    printBinary(x);
     return 0;
 }
