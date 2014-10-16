@@ -46,9 +46,9 @@ int stringToInt(const std::string& str)
     std::vector<char> vec;
 
     int i = 0;
-    for (char c : str)
+    for (const char& c : str)
     {
-        if ((c == 45 && i == 0) || (c > 47 && c < 58))
+        if (((c == 45 || c == 43) && i == 0) || (c > 47 && c < 58))
         {
             vec.push_back(c);
         }
@@ -58,24 +58,27 @@ int stringToInt(const std::string& str)
     }
 
     int num = 0, multiplier = 1;
-    if (vec.size() == 1 && (*vec.begin()) == 45)
-        throw std::invalid_argument( "Received a bad argument");
     int len = vec.size();
-    for(char& a: vec)
+
+    if (len == 1 && ((*vec.begin()) == 45 || (*vec.begin()) == 43))
+        throw std::invalid_argument( "Received a bad argument");
+
+    for(const char& a: vec)
     {
         if (a == 45)
         {
             multiplier = -1;
             len--;
+            continue;
         }
-        for (int i = 48; i < 58; i++)
+        if (a == 43)
         {
-            if (len != 0 && a == i)
-            {
-                num = num + pow(10, len - 1) * (i - 48);
-                len--;
-            }
+            multiplier = 1;
+            len--;
+            continue;
         }
+        num = num + pow(10, len - 1) * ( a - 48);
+        len--;
     }
     return num * multiplier;
 }
