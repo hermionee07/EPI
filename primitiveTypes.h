@@ -43,4 +43,11 @@ unsigned long long bitSwap(ushort i, ushort j, unsigned long long x);
 //
 unsigned long long reverseBits(unsigned long long x);
 
+// 5.6 Implement string to int conversion functions and vice versa.
+// Throws an invalid_argument exception if a bad argument is passed.
+int stringToInt(const std::string& str);
+
+std::string intToString(int x);
+
+
 #endif //PRIMITIVETYPES_H

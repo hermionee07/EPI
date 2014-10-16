@@ -36,5 +36,16 @@ int main()
     printBinary(5);
     x = reverseBits(5);
     printBinary(x);
+    try
+    {
+        int b = stringToInt("-555555");
+        int c = stringToInt("247f8");
+        cout << "b is" << b << " c is " << c << endl;
+        int a = stringToInt("-247-78");
+    }
+    catch(const std::invalid_argument& e)
+    {
+        cout <<e.what() << endl;
+    }
     return 0;
 }
