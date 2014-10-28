@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-
+#include <algorithm>
 using namespace std;
 
 void precomputeParity(std::array<ushort, 65536>& arr)
@@ -53,17 +53,20 @@ int stringToInt(const std::string& str)
             vec.push_back(c);
         }
         else
-            throw std::invalid_argument( "Received a bad argument");
+            throw std::invalid_argument( "Received a bad argument"); // string has non-numeral char
         i++;
     }
 
     int num = 0, multiplier = 1;
     int len = vec.size();
 
-    if (len == 1 && ((*vec.begin()) == 45 || (*vec.begin()) == 43))
+    if (len == 1 && ((*vec.begin()) == 45 || (*vec.begin()) == 43)) // got a string with a +/- sign and no number!
         throw std::invalid_argument( "Received a bad argument");
 
-    for(const char& a: vec)
+    if (len == 0) // got an empty string!
+        throw std::invalid_argument( "Received a bad argument");
+
+    for(const char& a: vec) // finally got a good string to convert!
     {
         if (a == 45)
         {
@@ -83,7 +86,41 @@ int stringToInt(const std::string& str)
     return num * multiplier;
 }
 
+std::string intToString(int x)
+{
+    bool negative = false;
+    if (x < 0)
+    {
+        negative = true;
+        x *= -1;
+    }
 
+    int remainder;
+    vector<char> vec;
+    while (x > 0) // O(number of digits)
+    {
+        remainder = x % 10;
+        vec.push_back(48 + remainder);
+        x = x / 10;
+    }
+
+    if (vec.empty())
+        return "0";
+
+    string result;
+
+    reverse(vec.begin(), vec.end());
+
+    if (negative)
+    {
+        result = result + "-";
+    }
+
+    for (const char& a: vec) // O(number of digits)
+        result = result + a;
+
+    return result;
+}
 
 
 

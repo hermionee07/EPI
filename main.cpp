@@ -41,11 +41,12 @@ int main()
         int b = stringToInt("+0");
         int c = stringToInt("+2478");
         cout << "b is" << b << " c is " << c << endl;
-        int a = stringToInt("+");
     }
     catch(const std::invalid_argument& e)
     {
         cout <<e.what() << endl;
     }
+    cout << intToString(0) << endl;
+    cout << intToString(-5-67) << endl;
     return 0;
 }
