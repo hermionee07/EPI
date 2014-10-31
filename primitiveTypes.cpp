@@ -122,10 +122,32 @@ std::string intToString(int x)
     return result;
 }
 
+int GCD(int x, int y)
+{
+    // Normal GCD
+    // GCD(x, y) == GCD(max(x,y)-min(x,y), min(x,y))
+    if (x == y)
+        return x;
+    else if (x > y)
+        GCD(x - y, y);
+    else
+        return GCD(y - x, x);
+}
 
-
-
-
+int GCDOptimized(int x, int y)
+{
+    if (x == y)
+        return x;
+    else if ( (x % 2 == 0) && (y % 2 == 0)) // both are even
+        return (GCDOptimized(x>>1, y>>1) << 1); // get the GCD of x/2 and y/2 and multiply it by 2.
+    else if ((x % 2 != 0) || (y % 2 != 0)) // one of them is odd
+    {
+        if (x > y)
+            return GCDOptimized(x-y, y);
+        else
+            return GCDOptimized(y-x, x);
+    }
+}
 
 
 

@@ -49,5 +49,7 @@ int stringToInt(const std::string& str);
 
 std::string intToString(int x);
 
+int GCD(int x, int y);
 
+int GCDOptimized(int x, int y);
 #endif //PRIMITIVETYPES_H

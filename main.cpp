@@ -48,5 +48,12 @@ int main()
     }
     cout << intToString(0) << endl;
     cout << intToString(-5-67) << endl;
+    cout << "GCD of 45, 80 is " << GCD(45,80) <<endl;
+    cout << "GCD of 45, 61 is " << GCD(45,61) <<endl;
+
+    cout << "GCD of 4, 80 is " << GCDOptimized(4,80) <<endl;
+    cout << "GCD of 45, 60 is " << GCDOptimized(45,60) <<endl;
+    cout << "GCD of 45, 7 is " << GCDOptimized(45,7) <<endl;
+
     return 0;
 }
