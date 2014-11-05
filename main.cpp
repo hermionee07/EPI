@@ -46,14 +46,20 @@ int main()
     {
         cout <<e.what() << endl;
     }
-    cout << intToString(0) << endl;
-    cout << intToString(-5-67) << endl;
-    cout << "GCD of 45, 80 is " << GCD(45,80) <<endl;
-    cout << "GCD of 45, 61 is " << GCD(45,61) <<endl;
+//    char a = 53;
+//    cout << a << endl;
+//    int t = -90;
+//    printf("--- %b --\n ", t);
 
-    cout << "GCD of 4, 80 is " << GCDOptimized(4,80) <<endl;
-    cout << "GCD of 45, 60 is " << GCDOptimized(45,60) <<endl;
-    cout << "GCD of 45, 7 is " << GCDOptimized(45,7) <<endl;
-
+    cout << "GCD of 5 and 7: " << GCD(5, 7) << endl;
+    cout << "GCD of 5 and 7: " << GCDOptimized(5, 7) << endl;
+    cout << "GCD of 35 and 60: " << GCD(35, 60) << endl;
+    cout << "GCD of 35 and 60: " << GCDOptimized(35, 60) << endl;
+    cout << "GCD of 45 and 90: " << GCD(45, 90) << endl;
+    cout << "GCD of 45 and 90: " << GCDOptimized(45, 90) << endl;
+    cout << "GCD of 3 and 9: " << GCD(3, 9) << endl;
+    cout << "GCD of 3 and 9: " << GCDOptimized (3, 9) << endl;
+    cout << "GCD of 4 and 20: " << GCD(4, 20) << endl;
+    cout << "GCD of 4 and 20: " << GCDOptimized(4, 20) << endl;
     return 0;
 }

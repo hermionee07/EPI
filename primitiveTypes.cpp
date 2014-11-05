@@ -5,6 +5,7 @@
 #include <vector>
 #include <math.h>
 #include <algorithm>
+
 using namespace std;
 
 void precomputeParity(std::array<ushort, 65536>& arr)
@@ -128,25 +129,18 @@ int GCD(int x, int y)
     // GCD(x, y) == GCD(max(x,y)-min(x,y), min(x,y))
     if (x == y)
         return x;
-    else if (x > y)
-        GCD(x - y, y);
     else
-        return GCD(y - x, x);
+        return GCD(abs(x-y), min(x,y));
 }
 
 int GCDOptimized(int x, int y)
 {
     if (x == y)
         return x;
-    else if ( (x % 2 == 0) && (y % 2 == 0)) // both are even
+    else if (((x & 1) == 0) && ((y & 1) == 0))  // both are even
         return (GCDOptimized(x>>1, y>>1) << 1); // get the GCD of x/2 and y/2 and multiply it by 2.
-    else if ((x % 2 != 0) || (y % 2 != 0)) // one of them is odd
-    {
-        if (x > y)
-            return GCDOptimized(x-y, y);
-        else
-            return GCDOptimized(y-x, x);
-    }
+    else                                        // one of them is odd
+        return GCD(abs(x-y), min(x,y));
 }
 
 
