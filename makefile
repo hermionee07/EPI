@@ -1,7 +1,7 @@
 CXX=g++
 CXX_FLAGS= -std=c++11 -Wall -g3
-DEPS = utilities.h primitiveTypes.h
-OBJ = main.o utilities.o primitiveTypes.o
+DEPS = utilities.h primitiveTypes.h arraysAndStrings.h
+OBJ = main.o utilities.o primitiveTypes.o arraysAndStrings.o
 PROGRAM = epi.exe
 
 %.o: %.cpp $(DEPS)

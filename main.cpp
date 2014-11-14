@@ -1,5 +1,6 @@
 #include "utilities.h"
 #include "primitiveTypes.h"
+#include "arraysAndStrings.h"
 #include <iostream>
 #include <array>
 
@@ -38,18 +39,19 @@ int main()
     printBinary(x);
     try
     {
-        int b = stringToInt("+0");
-        int c = stringToInt("+2478");
-        cout << "b is" << b << " c is " << c << endl;
+        int b = IsValidInt1(std::string("+0"));
+        int c = IsValidInt1(std::string("+2478"));
+        cout << "b is " << b << " c is " << c << endl;
+        int d = IsValidInt1(std::string("-56-"));
     }
     catch(const std::invalid_argument& e)
     {
-        cout <<e.what() << endl;
+        cout << e.what() << endl;
     }
-//    char a = 53;
-//    cout << a << endl;
-//    int t = -90;
-//    printf("--- %b --\n ", t);
+    char a = 53;
+    cout << a << endl;
+    int t = -90;
+    printf("--- %b --\n ", t);
 
     cout << "GCD of 5 and 7: " << GCD(5, 7) << endl;
     cout << "GCD of 5 and 7: " << GCDOptimized(5, 7) << endl;
@@ -58,8 +60,7 @@ int main()
     cout << "GCD of 45 and 90: " << GCD(45, 90) << endl;
     cout << "GCD of 45 and 90: " << GCDOptimized(45, 90) << endl;
     cout << "GCD of 3 and 9: " << GCD(3, 9) << endl;
-    cout << "GCD of 3 and 9: " << GCDOptimized (3, 9) << endl;
-    cout << "GCD of 4 and 20: " << GCD(4, 20) << endl;
-    cout << "GCD of 4 and 20: " << GCDOptimized(4, 20) << endl;
+    cout << "GCD of 3 and 9: " << GCDOptimized(3, 9) << endl;
+    BigNumberMultiplication("456", "222");
     return 0;
 }
