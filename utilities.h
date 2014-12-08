@@ -16,7 +16,6 @@ bool IsValidInt1(const T& str)
     int i = 0;
     typename T::const_iterator c;
     for (c = str.begin(); c != str.end(); c++)
-        //for (const char& c : str)
     {
         if (((*c == 45 || *c == 43) && i == 0) || (*c > 47 && *c < 58))
             i++;

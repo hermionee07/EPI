@@ -39,10 +39,11 @@ int main()
     printBinary(x);
     try
     {
-        int b = IsValidInt1(std::string("+0"));
+        int b = 0;
+        b  = IsValidInt1(std::string("+0"));
         int c = IsValidInt1(std::string("+2478"));
         cout << "b is " << b << " c is " << c << endl;
-        int d = IsValidInt1(std::string("-56-"));
+        cout << IsValidInt1(std::string("-56-")) << endl;
     }
     catch(const std::invalid_argument& e)
     {
@@ -50,8 +51,6 @@ int main()
     }
     char a = 53;
     cout << a << endl;
-    int t = -90;
-    printf("--- %b --\n ", t);
 
     cout << "GCD of 5 and 7: " << GCD(5, 7) << endl;
     cout << "GCD of 5 and 7: " << GCDOptimized(5, 7) << endl;
@@ -61,6 +60,9 @@ int main()
     cout << "GCD of 45 and 90: " << GCDOptimized(45, 90) << endl;
     cout << "GCD of 3 and 9: " << GCD(3, 9) << endl;
     cout << "GCD of 3 and 9: " << GCDOptimized(3, 9) << endl;
-    BigNumberMultiplication("456", "222");
+    cout << "456 x 2 is " << BigNumberMultiplication("-456", "02199")<< endl;
+    cout << "456 x 2 is " << BigNumberMultiplication("-456", "-2199")<< endl;
+    cout << "456 x 2 is " << BigNumberMultiplication("456", "02199")<< endl;
+    cout << "456 x 2 is " << BigNumberMultiplication("+456", "+2199")<< endl;
     return 0;
 }
